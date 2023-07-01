@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitalize</title>
+    <style>
+        #naam{
+            font-size: 30px;
+            border-radius: 20px;
+            padding: 2px 20px;
+            border: 2px solid darkblue;
+        }
+        label{
+            font-size: 30px;
+        }
+        input[type='button']{
+            font-size: 20px;
+            margin: 15px 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Capitalize</h1>
+    <form>
+        <label>
+            Name :- 
+            <input type="text" name="naam" id="naam" placeholder="Enter Name.......">
+        </label>
+        <br>
+
+        <input type="button" value="Capitalize" onclick="Cap()">
+        <input type="button" value="Clear" onclick="Clr()">
+    </form>
+    <h1 id="res"></h1>
+
+    <script>
+        function Cap(){
+            var naam = document.getElementById("naam").value;
+            let newName = Array.from(naam)
+            newName[0] = newName[0].toUpperCase()
+            for( let i = 0 ; i < newName.length ; i++ ){
+                if ( newName[i] == ' ') {
+                    newName[i+1] = newName[i+1].toUpperCase()
+                }
+            }
+            document.getElementById("res").innerHTML = newName.join("")
+        }
+        function Clr(){
+            document.getElementById("naam").value = ""
+            document.getElementById("res").innerHTML = ""
+        }
+    </script>
+</body>
+</html>

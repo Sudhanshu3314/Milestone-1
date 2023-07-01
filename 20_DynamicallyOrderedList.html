@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamically Ordered List</title>
+    <style>
+        button {
+            font-size: 35px;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 15px auto;
+            border-radius: 20px;
+            border: 2px solid brown;
+            background-color: aliceblue;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+        }
+        .listTask{
+            text-align: center;
+            background-color: aliceblue;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px .5px black;
+            margin: 30px auto;
+            padding: 5px 15px;
+            max-width: 600px;
+            list-style: none;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        #itemOfArray{
+            padding: 0px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="btn">
+        <button>Add List Item</button>
+    </div>
+
+    <ol id="itemOfArray">
+
+    </ol>
+
+    <script>
+        const addItem = document.querySelector('button');
+        let count = 0
+        let index = 0
+        let item = document.getElementById("itemOfArray")
+
+        addItem.addEventListener("click", function () {
+            let list = ["HTML and Semantics",
+                "Starting with CSS",
+                "Working Template",
+                "Mobile responsive webpages",
+                "Grid and Flex-box in CSS",
+                "Projects using HTML & CSS",
+                "Version Control and Git",
+                "Getting Started with JavaScript",
+                "Advance JavaScript",
+                "Working with DOM",
+                "Making Projects using HTML, CSS and JavaScript",
+                "Understanding Fundamental of Computer Science",
+                "Getting Started with Database",
+                "Understanding the Database",
+                "Starting with NodeJS and Express",
+                "Understanding React and its Fundamentals",
+                "Understanding Hooks and Routers",
+                "Starting and Completing Foll Fledge Projects",
+            ]
+
+                let listTask = document.createElement("li")
+
+                listTask.setAttribute("class", "listTask")
+                listTask.innerText = (++count) + ") " + list[index++] ;
+                item.appendChild(listTask)
+
+                if ( index > list.length ) {
+                    alert("You have completed all tasks");
+                    while( item.hasChildNodes() ){
+                        item.removeChild(item.firstChild);
+                    }
+                    count = 0 
+                    index = 0
+                }
+        })
+
+        document.getElementById("btn").addEventListener( "keypress" , function (event) {
+            switch ( event.key ){
+                case "Enter":
+                    event.preventDefault()
+                    document.getElementById("btn").click()
+                    break
+            }
+        })
+
+        
+    </script>
+</body>
+
+</html>

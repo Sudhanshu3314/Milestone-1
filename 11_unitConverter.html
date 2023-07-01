@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description"
+        content="Visit Some interesting websites. This is Sudhanshu's Personal Website you all can different website which is created by Sudhanshu for useful purpose">
+    <meta name="keywords" content="ERROR, Portfolio, Visit Handmade Websites, Websites">
+    <meta name="robots" content="INDEX,FOLLOW">
+    <meta name="author" content="Sudhanshu Barnwal">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Unit Convertor</title>
+    <style>
+        .head {
+            font-family: cursive;
+            color: brown;
+            text-shadow: 5px 3px aqua;
+            font-size: 70px;
+            border-radius: 45px;
+        }
+
+        .slide {
+            font-family: georgia;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px aqua;
+            font-size: 30px;
+            border-radius: 70px;
+        }
+
+        table,
+        tr,
+        th {
+            border-radius: 25px;
+            border: 8px solid aliceblue;
+        }
+
+        label {
+            font-family: georgia;
+            color: green;
+            font-size: 30px;
+        }
+
+        .inp {
+            font-family: georgia;
+            color: red;
+            padding: 7px;
+            font-size: 30px;
+            width: 140px;
+            font-weight: bold;
+            border: 4px solid blue;
+            border-radius: 15px;
+            outline: none;
+        }
+
+        .btn {
+            color: red;
+            font-size: 45px;
+            font-weight: bold;
+            background-color: white;
+            border: 10px solid yellow;
+            border-radius: 35px;
+            outline: none;
+        }
+
+        .btn:hover {
+            color: blue;
+            border: 9px solid aquamarine;
+        }
+
+        .res {
+            color: darkblue;
+            margin: 22px 0px;
+            font-size: 30px;
+        }
+
+        #alert {
+            font-size: 30px;
+            margin: 22px 0px;
+            font-family: georgia;
+        }
+
+        #img {
+            background-size: 100% 100%;
+        }
+
+        #menu {
+            color: white;
+        }
+
+        @media (max-width:650px) and (min-width:400px) {
+            table {
+                width: 350px;
+                height: 400px;
+            }
+
+            label {
+                font-size: 20px;
+            }
+
+            .btn {
+                font-size: 24px;
+            }
+
+            .head {
+                font-size: 35px;
+            }
+
+            .inp {
+                font-size: 22px;
+            }
+
+            .slide {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width:400px) and (min-width:300px) {
+            table {
+                width: 250px;
+                height: 300px;
+            }
+
+            label {
+                font-size: 16px;
+            }
+
+            .slide {
+                font-size: 20px;
+            }
+
+            .btn {
+                border: 4px solid yellow;
+                font-size: 20px;
+            }
+
+            .head {
+                font-size: 25px;
+            }
+
+            .inp {
+                font-size: 16px;
+                padding: 3px;
+                width: 80px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="nav.css">
+    <link rel="icon" href="error.jpg">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body Id="img" align="center">
+
+    <br><br>
+    <center>
+        <table align="center" bgcolor="red">
+            <tr>
+                <th bgcolor="lightyellow">
+                    <h1 class="head">&star;&nbsp;<u>Temperature Unit Convertor</u>&nbsp;&star;</h1>
+                </th>
+            </tr>
+
+            <tr bgcolor="ivory">
+                <th><br>
+                    <form name="f1">
+                        <label><i>Temperature (in <sup>o</sup>C )</i> :- &nbsp;<input type="number" class="inp"
+                                name="n1" placeholder=" in &#8304;C">
+                        </label>
+                        <br>
+                        <b Id="alert"></b>
+                        <b class="res" Id="ans"></b>
+                        <br><br>
+                </th>
+            </tr>
+
+            <tr>
+                <th><br>
+                    <input type="button" value="Clear" onclick="Clr()" class="btn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="button" value="Calculate" onclick="Cal()" class="btn">
+                    <br><br></form>
+                </th>
+            </tr>
+
+        </table>
+    </center>
+    <br><br><br>
+
+    <marquee class="slide">-Designed By Sudhanshu Banrwal</marquee>
+    <script language="javascript">
+        function Cal() {
+            let cel = parseFloat(f1.n1.value)
+            let far = ((9/5) * cel)+ 32 ;
+            document.getElementById("ans").innerHTML = "<hr color=brown> &rarr; " + cel + " celsius to " + far + " fahrenheit";
+            document.getElementById("alert").innerHTML = "";
+
+            if (f1.n1.value == "") {
+                f1.n1.value = document.getElementById("ans").innerHTML ="";
+                document.getElementById("alert").innerHTML = "<br><hr color=brown><b style=color:red> Please !! Enter the numerical value.</b>";
+            }
+        }
+        function Clr() {
+            f1.n1.value = document.getElementById("ans").innerHTML = "";
+            document.getElementById("alert").innerHTML = "";
+        }
+
+    </script>
+
+</body>
+
+</html>

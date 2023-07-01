@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Item</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type='button'] {
+            margin: 10px 20px;
+            font-size: 23px;
+            font-weight: bold;
+            border-radius: 10px;
+            border: 5px solid blue;
+            box-sizing: border-box;
+            color: darkblue;
+            background-color: aliceblue;
+        }
+
+        input[type='button']:hover {
+            background-color: darkblue;
+            color: aliceblue;
+            border: 5px double yellow;
+        }
+
+        input[type='text'] {
+            margin: 10px 20px;
+            font-size: 30px;
+            outline: none;
+            border: 4px double brown;
+            padding: 5px 20px;
+            box-shadow: 0px 0px 10px 1px black;
+            border-radius: 20px;
+        }
+
+        .listTask {
+            text-align: center;
+            background-color: aliceblue;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px .5px black;
+            margin: 30px auto;
+            padding: 5px 15px;
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <label>
+            <input type="text" name="task" id="task" autofocus placeholder="Enter Your Task........">
+        </label>
+        <br>
+        <div>
+            <input type="button" value="Clear" onclick="Clr()">
+            <input type="button" id="btn" value="Add Task" onclick="AddTask()">
+        </div>
+    </form>
+
+    <div id="AddTask">
+
+    </div>
+
+    <script>
+        let task = document.getElementById("AddTask")
+        let count = 0
+
+        let userTask = document.getElementById("task")
+        function AddTask() {
+            let valurUserTask = userTask.value
+            if (document.getElementById("task").value != "") {
+                let listTask = document.createElement("h1")
+                listTask.setAttribute("class", "listTask")
+                listTask.innerHTML = (++count) + ") " + valurUserTask
+                task.appendChild(listTask)
+                document.getElementById("task").value = ""
+            }
+        }
+
+        userTask.addEventListener("keypress", function (event) {
+            switch (event.key) {
+                case "Enter":
+                    event.preventDefault()
+                    document.getElementById("btn").click()
+                    break
+            }
+        })
+
+        function Clr() {
+            count = 0
+            document.getElementById("task").value = ""
+            while (task.hasChildNodes()) {
+                task.removeChild(task.firstChild)
+            }
+        }
+    </script>
+
+</body>
+
+</html>

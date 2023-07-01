@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Counter</title>
+    <style>
+        form {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        input {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 35px;
+        }
+
+        input[type='button'] {
+            margin: 20px 40px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body align="center">
+    <h1>Vowel Counter</h1>
+
+    <form>
+        <label>
+            Enter any Word :-
+            <input type="text" placeholder="Enter word........" id="word">
+        </label><br>
+
+        <input type="button" value="Count" onclick="Count()">
+        <input type="button" value="Clear" onclick="Clr()">
+    </form>
+
+    <p id="res"></p>
+    <script>
+        function Count(){
+            let word = document.getElementById("word").value;
+            word = word.toLowerCase();
+
+            let wordArray = Array.from(word);
+
+            let countVowels = 0 ;
+
+            for( let i = 0 ; i < wordArray.length ; i+=1 ){
+                if( wordArray[i] == 'a' ||  wordArray[i] == 'e' ||  wordArray[i] == 'i' ||  wordArray[i] == 'o' ||  wordArray[i] == 'u' ){
+                    countVowels++;
+                }
+            }
+            document.getElementById("res").innerText = "Vowels in " + word + " word is " + countVowels 
+        }
+        function Clr(){
+            document.getElementById("res").innerText = "";
+            document.getElementById("word").value = ""
+        }
+    </script>
+</body>
+</html>

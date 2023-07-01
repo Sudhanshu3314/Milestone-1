@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Triangle</title>
+    <style>
+        input[type="button"] {
+            margin: 5px 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <input type="number" autocomplete="off" autofocus placeholder="Enter No Of Rows...." name="num" id="rows" /><br /><br />
+        <input type="button" value="Print Star" onclick="perform()" />
+        <input type="button" value="Clear" onclick="clr()" />
+    </center>
+    <h2 id="res"></h2>
+    <script> 
+        function perform() {
+            row = parseInt(document.getElementById("rows").value);
+            for (let i = 1; i <= row; i++) {
+                for (let j = 1; j <= row - i + 1; j++) {
+                    document.getElementById("res").innerHTML += "*";
+                }
+                document.getElementById("res").innerHTML += "<br>";
+            }
+        }
+
+        function clr() {
+            document.getElementById("rows").value = "";
+            document.getElementById("res").innerHTML = "";
+        }
+    </script>
+</body>
+
+</html>

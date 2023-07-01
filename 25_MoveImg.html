@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Image</title>
+    <style>
+        img {
+            /* transform: translate(xOffSet, yOffSet); */
+            transform: translate(200px, 200px);
+            width: 150px;
+            height: 150px;
+            border-radius: 100%;
+            box-shadow: 0px 0px 10px 2px black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img id="img" src="https://whytedevil.netlify.app/fauji.jpg">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let x = 200, y = 200
+        let img = document.getElementById("img")
+
+        function moveImg(xOffSet, yOffSet) {
+            x = x + xOffSet;
+            y = y + yOffSet;
+
+            img.style.transform = "translate(" + x + "px , " + y + "px )"
+            // img.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        document.addEventListener("keydown", function (keyEvent) {
+            switch (keyEvent.key) {
+                case "ArrowUp":
+                    moveImg(0, -10)
+                    break
+                case "ArrowDown":
+                    moveImg(0, 10)
+                    break
+                case "ArrowLeft":
+                    moveImg(-10, 0)
+                    break
+                case "ArrowRight":
+                    moveImg(10, 0)
+                    break
+            }
+        })
+    </script>
+</body>
+
+</html>

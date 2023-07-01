@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Rental Cost</title>
+    <style>
+        form {
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid brown;
+            border-radius: 20px;
+            width: 45%;
+        }
+
+        .inp {
+            font-size: 30px;
+            border-radius: 20px;
+            padding: 5px 12px;
+            border: 3px solid blue;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+
+        label {
+            font-size: 30px;
+            border-radius: 20px;
+            padding: 5px 12px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+            margin: 10px 20px;
+        }
+
+        h1 {
+            font-size: 70px;
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+        }
+
+        input[type='button'] {
+            font-size: 30px;
+            width: 150px;
+            display: inline;
+            margin: 2px 40px;
+            border-radius: 20px;
+            border: 3px solid rebeccapurple;
+            background-color: rgb(255, 255, 182);
+        }
+    </style>
+</head>
+
+<body>
+    <h1><u>Calculate Rental Cost</u></h1>
+    <div>
+        <form>
+            <label>
+                No.Of Days :-
+                <input type="number" name="days" oninput="Calculate()" class="inp" id="days"
+                    placeholder="No. of Days......." style="width:45%;" autofocus>
+            </label>
+            <label>
+                Type Of Car :-
+                <select name="car" onchange="Calculate()" class="inp" id="car">
+                    <option value="Economy">Economy</option>
+                    <option value="Midsize">Midsize</option>
+                    <option value="Luxury">Luxury</option>
+                </select>
+            </label>
+            <div>
+                <input type="button" value="Clear" onclick="Clr()">
+            </div>
+            <h2 id="res"></h2>
+        </form>
+
+    </div>
+
+    <script>
+        function Calculate() {
+            let days = parseInt(document.getElementById("days").value)
+            let cost;
+            let car = document.getElementById("car").value
+            switch (car) {
+                case "Economy":
+                    cost = 40000 * days
+                    break
+                case "Midsize":
+                    cost = 10000 * days
+                    break
+                case "Luxury":
+                    cost = 20000 * days
+                    break
+
+            }
+            document.getElementById("res").innerHTML = "Rental Cost of " + car + "<br> for " + days + " days " + " is Rs " + cost;
+            if ( document.getElementById("days").value == "" ) {
+                document.getElementById("res").innerHTML = "Please !! Enter No. Of Days";
+            }
+        }
+        function Clr(){
+            document.getElementById("days").value="";
+            document.getElementById("res").innerHTML="";
+        }
+    </script>
+</body>
+
+</html>

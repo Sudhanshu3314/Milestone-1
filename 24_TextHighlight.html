@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Highlighting</title>
+    <style>
+        h1 {
+            text-align: center;
+            text-decoration: underline;
+            text-transform: capitalize;
+        }
+
+        form textarea {
+            display: block;
+            margin: auto;
+            border: 2px solid darkblue;
+            padding: 5px 10px;
+        }
+
+        p {
+            margin: 40px 100px;
+            padding: 20px 40px;
+            border: 4px double brown;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Text highlighting</h1>
+    <form>
+        <textarea name="text" ondblclick="Clr()" id="text" cols="60" rows="10"></textarea>
+    </form>
+
+    <p id="res"></p>
+
+    <script>
+        let text = document.getElementById("text")
+
+        let res = document.getElementById("res")
+
+        text.addEventListener("input", function (event) {
+            event.preventDefault()
+            let paraText = text.value
+            let splitedParaText = paraText.split(" ")
+
+            const paraHighlighted = splitedParaText.map((event) => {
+                if (event.length > 8) {
+                    event = `<span style="background-color: yellow;">${event}</span>`;
+                }
+                return event;
+            }).join(' ');
+
+            res.innerHTML = paraHighlighted;
+        })
+
+
+        function Clr() {
+            document.getElementById("text").value = document.getElementById("res").innerHLTML = ""
+        }
+    </script>
+</body>
+
+</html>
